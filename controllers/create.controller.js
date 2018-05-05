@@ -7,7 +7,8 @@ const mongoose = require('mongoose'),
 // services
 const urlService = require('../services/url.service'),
       databaseService = require('../services/database.service'),
-      jsonService = require('../services/json.service');
+      jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
 // models
 const category = mongoose.model('Category'),
@@ -18,13 +19,6 @@ const category = mongoose.model('Category'),
       place = mongoose.model('Place'),
       subcategory = mongoose.model('Subcategory'),
       user = mongoose.model('User');
-
-// setting the API password for local and production environments
-var apiPassword = 'whatpassword';
-
-if (process.env.NODE_ENV === 'production') {
-  apiPassword = process.env.API_PASSWORD;
-}
 
 /**
  * Creates a category after we have queried latest count

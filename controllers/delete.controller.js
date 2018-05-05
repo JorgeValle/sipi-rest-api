@@ -5,14 +5,11 @@ const mongoose = require('mongoose'),
       fs = require('fs');
 
 // services
-const jsonService = require('../services/json.service');
+const jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
-// setting the API password for local and production environments
-var apiPassword = 'whatpassword';
 
-if (process.env.NODE_ENV === 'production') {
-	apiPassword = process.env.API_PASSWORD;
-}
+const apiPassword = environmentService.returnApiPassword();
 
 /**
  * Deletes one by id

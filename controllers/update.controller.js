@@ -412,8 +412,8 @@ module.exports.updateUserImageById = function(req, res) {
       jsonService.sendResponse(res, 400, err);
     }
 
-    // foundUser.imageFileName = `http://via.placeholder.com/500x500`;
-    foundUser.imageFileName = `http://localhost:4200/assets/uploads/31936894263f540303dcd2f25db3664b.jpg`;
+    foundUser.imageFileName = `http://via.placeholder.com/500x500`;
+    // foundUser.imageFileName = `http://localhost:4200/assets/uploads/31936894263f540303dcd2f25db3664b.jpg`;
 
     // finally we save the new object
     foundUser.save(function(err, updatedUser) {

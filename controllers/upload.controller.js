@@ -10,17 +10,13 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 
 // bring in Antares utilities
-
-const jsonService = require('../services/json.service');
+const jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
 const updateCtrl = require('./update.controller');
 
 // setting the API password for local and production environments
-var apiPassword = 'whatpassword';
-
-if (process.env.NODE_ENV === 'production') {
-  apiPassword = process.env.API_PASSWORD;
-}
+const apiPassword = environmentService.returnApiPassword();
 
 /**
  * Uploads user's profile photo

@@ -8,19 +8,14 @@ const mongoose = require('mongoose'),
 // services
 const emailService = require('../services/email.service'),
       guidService = require('../services/guid.service'),
-      jsonService = require('../services/json.service');
+      jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
 require('../config/passport.config');
 
 // models
 const user = mongoose.model('User');
 
-// setting the API password for local and production environments
-var apiPassword = 'whatpassword';
-
-if (process.env.NODE_ENV === 'production') {
-  apiPassword = process.env.API_PASSWORD;
-}
 
 /**
  * Cancels user membership
