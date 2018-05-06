@@ -30,31 +30,49 @@ const category = mongoose.model('Category'),
  */
 module.exports.createCategory = function(req, res) {
 
-  // once we have count, we save
-  let categoryCount = category.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    var newCategory = new category({
-      native: {
-        name: req.body.name,
-        slug: urlService.sluggify(req.body.name),
-        summary: req.body.summary
-      },
-      system: {
-        id: databaseService.increaseByOne(numberOfEntries),
-        iconId: req.body.iconId
-      }
+    // once we have count, we save
+    let categoryCount = category.count({}, function(err, numberOfEntries) {
+
+      let newCategory = new category({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name),
+          summary: req.body.summary
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries),
+          iconId: req.body.iconId
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+      });
+
+      /**
+       * Saves out the new category object
+       */
+      newCategory.save(function(err, newCategory) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newCategory);
+        }
+      });
+
     });
 
-    // save the city to the database, if all goes well
-    newCategory.save(function(err, newCategory) {
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newCategory);
-      }
-    });
+  } else {
 
-  });
+    jsonService.sendResponse(res, 403, 'No chance');
+
+  }
 
 }
 
@@ -67,30 +85,45 @@ module.exports.createCategory = function(req, res) {
  */
 module.exports.createCountry = function(req, res) {
 
-  // once we have count, we save
-  let countryCount = country.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    var newCountry = new country({
-      native: {
-        name: req.body.name,
-        slug: urlService.sluggify(req.body.name)
-      },
-      system: {
-        id: databaseService.increaseByOne(numberOfEntries)
-      }
+    // once we have count, we save
+    let countryCount = country.count({}, function(err, numberOfEntries) {
+
+      var newCountry = new country({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name)
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries)
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+      });
+    
+      // save the country to the database, if all goes well
+      newCountry.save(function(err, newCountry) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newCountry);
+        }
+      });
+
     });
-  
-    // save the country to the database, if all goes well
-    newCountry.save(function(err, newCountry) {
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newCountry);
-      }
-    });
 
+  } else {
 
-  });
+    jsonService.sendResponse(res, 403, 'There is no way');
+
+  }
 
 }
 
@@ -104,32 +137,48 @@ module.exports.createCountry = function(req, res) {
  */
 module.exports.createCity = function(req, res) {
 
-  // once we have count, we save
-  let cityCount = city.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    var newCity = new city({
-      native: {
-        name: req.body.name,
-        slug: urlService.sluggify(req.body.name)
-      },
-      system: {
-        countryId: req.body.countryId,
-        id: databaseService.increaseByOne(numberOfEntries)
-      }
+    // once we have count, we save
+    let cityCount = city.count({}, function(err, numberOfEntries) {
+
+      let newCity = new city({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name)
+        },
+        // system
+        system: {
+          countryId: req.body.countryId,
+          id: databaseService.increaseByOne(numberOfEntries)
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+      });
+
+      // save the city to the database, if all goes well
+      newCity.save(function(err, newCity) {
+
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newCity);
+        }
+
+      });
+
     });
 
-    // save the city to the database, if all goes well
-    newCity.save(function(err, newCity) {
+  } else {
 
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newCity);
-      }
+    jsonService.sendResponse(res, 403, 'You shall not pass');
 
-    });
-
-  });
+  }
 
 }
 
@@ -143,33 +192,51 @@ module.exports.createCity = function(req, res) {
  */
 module.exports.createPage = function(req, res) {
 
-  // once we have count, we save
-  let pageCount = page.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    var newPage = new page({
-      native: {
-        title: req.body.title,
-        body: req.body.body,
-        slug: urlService.sluggify(req.body.title)
-      },
-      system: {
-        id: databaseService.increaseByOne(numberOfEntries)
-      }
+    // once we have count, we save
+    let pageCount = page.count({}, function(err, numberOfEntries) {
+
+      let newPage = new page({
+        // content
+        content: {
+          title: req.body.title,
+          body: req.body.body,
+          slug: urlService.sluggify(req.body.title)
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries)
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+
+      });
+
+      /**
+       * Saves out the new page object
+       */
+      newPage.save(function(err, newPage) {
+
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newPage);
+        }
+
+      });
 
     });
 
-    newPage.save(function(err, newPage) {
+  } else {
 
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newPage);
-      }
+    jsonService.sendResponse(res, 403, 'No');
 
-    });
-
-  });
-
+  }
 }
 
 /**
@@ -191,7 +258,7 @@ module.exports.createPlace = function(req, res) {
       return 12;
     };
 
-    var newPlace = new place({
+    let newPlace = new place({
       native: {
         name: req.body.name,
         slug: urlService.sluggify(req.body.name)
@@ -229,29 +296,46 @@ module.exports.createPlace = function(req, res) {
  */
 module.exports.createSubcategory = function(req, res) {
 
-  // once we have count, we save
-  let subcategoryCount = subcategory.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    var newSubcategory = new subcategory({
-      native: {
-        name: req.body.name
-      },
-      system: {
-        id: databaseService.increaseByOne(numberOfEntries),
-        parentId: req.body.parentId
-      }
+    // once we have count, we save
+    let subcategoryCount = subcategory.count({}, function(err, numberOfEntries) {
+
+      let newSubcategory = new subcategory({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name)
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries),
+          parentId: req.body.parentId
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+      });
+
+      // save the final document to the database
+      newSubcategory.save(function(err, newSubcategory) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newSubcategory);
+        }
+      });
+
     });
 
-    // save the final document to the database
-    newSubcategory.save(function(err, newSubcategory) {
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newSubcategory);
-      }
-    });
+  } else {
 
-  });
+    jsonService.sendResponse(res, 403, 'No');
+
+  }
 
 }
 
@@ -264,7 +348,7 @@ module.exports.createSubcategory = function(req, res) {
  */
 module.exports.createNotification = function(req, res) {
 
-  var newNotification = new notification({
+  let newNotification = new notification({
     body: req.body.name,
     id: databaseService.increaseByOne(numberOfEntries),
     message: req.body.message,
@@ -287,6 +371,7 @@ module.exports.createNotification = function(req, res) {
 
 /**
  * Uploads user's profile photo
+ * @todo Implement this
  */
 module.exports.uploadProfilePhoto = function(req, res) {
 

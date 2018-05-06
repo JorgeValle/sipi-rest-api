@@ -18,7 +18,8 @@ let countrySchema = new Schema({
     name: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      trim: true
     },
     slug: {
       type: String,
@@ -35,8 +36,9 @@ let countrySchema = new Schema({
   }
 });
 
+// setting the property indexed for search
 countrySchema.index({
-  'native.name': 'text'
+  'content.name': 'text'
 });
 
 // compile schema to bson, telling mongo to use 'users' collection

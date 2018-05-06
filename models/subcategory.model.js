@@ -18,7 +18,11 @@ let subcategorySchema = new Schema({
   content: {
     name: {
       type: String,
-      required: true
+      required: true,
+      trim: true
+    },
+    slug: {
+      type: String
     }
   },
   // system
@@ -35,7 +39,7 @@ let subcategorySchema = new Schema({
 });
 
 subcategorySchema.index({
-  name: 'text'
+  'content.name': 'text'
 });
 
 // compile schema to bson, telling mongo to use 'subcategories' collection

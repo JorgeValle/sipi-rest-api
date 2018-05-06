@@ -92,7 +92,7 @@ let placeSchema = new Schema({
 
 // indexing the fields to be used for search
 placeSchema.index({
-  name: 'text'
+  'content.name': 'text'
 });
 
 // compile schema to bson, telling mongo to use 'places' collection

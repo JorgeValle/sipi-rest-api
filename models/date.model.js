@@ -12,7 +12,7 @@ let dateSchema = new Schema({
     type: Date,
     require: true
   },
-  lastModified: {
+  modified: {
     type: Date,
     required: true
   }

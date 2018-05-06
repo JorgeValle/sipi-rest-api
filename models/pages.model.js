@@ -27,12 +27,15 @@ let pageSchema = new Schema({
     },
     slug: String
   },
-  // system
-  system: {
+  // traffic
+  traffic: {
     hits: {
       type: Number,
       default: 0
-    },
+    }
+  },
+  // system
+  system: {
     id: {
       type: Number,
       required: true,

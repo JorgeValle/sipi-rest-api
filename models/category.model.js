@@ -18,11 +18,14 @@ let categorySchema = new Schema({
   content: {
     name: {
       type: String,
-      required: true
+      required: true,
+      unique: true,
+      trim: true
     },
     slug: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     summary: String
   },
@@ -43,7 +46,7 @@ let categorySchema = new Schema({
 
 // setting the property indexed for search
 categorySchema.index({
-  name: 'text'
+  'content.name': 'text'
 });
 
 // compile schema to bson, telling mongo to use 'users' collection

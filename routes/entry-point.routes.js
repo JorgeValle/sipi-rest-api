@@ -5,7 +5,7 @@ const express = require('express'),
 
 // bring in all the needed routes
 require('./retrieve.routes');
-require('./create.routes')(router);
+require('./create.routes');
 require('./update.routes');
 require('./delete.routes');
 

@@ -21,15 +21,16 @@ const authRoutes = require('./routes/auth.routes'),
       uploadRoutes = require('./routes/upload.routes');
 
 // declare express app
-var app = express();
+const app = express();
 
 app.listen(process.env.PORT || 4100, function() {
-  console.log("Express has started on port 4100, or on Heroku port");
+  console.log('Express has started on port 4100, or on Heroku port');
 });
 
 // logging middleware
 app.use(logger('dev'));
 
+// set view engine
 app.set('view engine', 'pug');
 
 // for dev only, allow cors
@@ -48,15 +49,15 @@ app.use(methodOverride('_method'));
 app.use(passport.initialize());
 
 // setting up the routes for Antares, the Antares admin app, and the optional user app
-app.use('/api/auth', authRoutes);
-app.use('/api/retrieve', retrieveRoutes);
-app.use('/api/create', createRoutes);
-app.use('/api/update', updateRoutes);
-app.use('/api/upload', uploadRoutes);
+app.use('/auth', authRoutes);
+app.use('/retrieve', retrieveRoutes);
+app.use('/create', createRoutes);
+app.use('/update', updateRoutes);
+app.use('/upload', uploadRoutes);
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send('Sipi Rest API v3.0.0-beta');
+  res.send('Sipi Rest API v3.0.0-rc');
 })
 
 // catch 404 and forward to error handler
@@ -70,6 +71,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
+
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -77,16 +79,19 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
+
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
     error: {}
   });
+
 });
 
 // finall we export the app module

@@ -17,7 +17,8 @@ let citySchema = new Schema({
   content: {
     name: {
       type: String,
-      required: true
+      required: true,
+      trim: true
     },
     slug: {
       type: String,
@@ -39,7 +40,7 @@ let citySchema = new Schema({
 });
 
 citySchema.index({
-  'native.name': 'text'
+  'content.name': 'text'
 });
 
 // compile schema to bson, telling mongo to use 'users' collection
