@@ -1,0 +1,829 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "services/.external-ecmascript.js",
+    "static": true,
+    "longname": "services/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "services/create_content_service.js",
+    "content": "\nmodule.exports.createSpecificContent = function(contentType, req, res) {\n\n};",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/create_content_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "createSpecificContent",
+    "memberof": "services/create_content_service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "services/create_content_service.js~createSpecificContent",
+    "access": "public",
+    "export": false,
+    "importPath": "Antares/services/create_content_service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "contentType",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "services/delete_content_service.js",
+    "content": "",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/delete_content_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "services/retrieve_content_service.js",
+    "content": "",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/retrieve_content_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "services/retrieve_service.js",
+    "content": "// bring in sorting utility\nvar sortingService;\n\n/**\n * this is the function that retrieves any content type\n *\n */\nmodule.exports.retrieveAllContent = function(contentType, req, res) {\n  contentType.find({}).sort({ 'publishedDate': sortBy }).exec(function(err, returnedContent) {\n    utilities.sendJsonResponse(res, 200, pages);\n  });\n};\n/**\n * this is my test function\n *\n */\nmodule.exports.retrieveSpecificContent = function(contentType, req, res) {\n  // get the url from the router\n  let wantedUrl = req.params.url;\n  // go fetch wanted content via mongoose\n  contentType.findOne({ 'url': wantedUrl }, function(err, returnedContent) {\n    // return 200 only if page is found, otherwise return 404\n    if(currentContentType) {\n      utilities.sendJsonResponse(res, 200, currentContentType);\n    } else {\n      utilities.sendJsonResponse(res, 404);\n    }\n  });\n};",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/retrieve_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "retrieveAllContent",
+    "memberof": "services/retrieve_service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "services/retrieve_service.js~retrieveAllContent",
+    "access": "public",
+    "export": false,
+    "importPath": "Antares/services/retrieve_service.js",
+    "importStyle": null,
+    "description": "this is the function that retrieves any content type",
+    "lineNumber": 8,
+    "params": [
+      {
+        "name": "contentType",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "retrieveSpecificContent",
+    "memberof": "services/retrieve_service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "services/retrieve_service.js~retrieveSpecificContent",
+    "access": "public",
+    "export": false,
+    "importPath": "Antares/services/retrieve_service.js",
+    "importStyle": null,
+    "description": "this is my test function",
+    "lineNumber": 17,
+    "params": [
+      {
+        "name": "contentType",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "services/sorting_service.js",
+    "content": "\nmodule.exports.sortByBestMatch = function(one, two) {\n};\n\n",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/sorting_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "function",
+    "name": "sortByBestMatch",
+    "memberof": "services/sorting_service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "services/sorting_service.js~sortByBestMatch",
+    "access": "public",
+    "export": false,
+    "importPath": "Antares/services/sorting_service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "one",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "two",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "name": "services/update_content_service.js",
+    "content": "\nmodule.exports.sortByBestMatch = function(one, two) {\n};\n\n",
+    "static": true,
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/antares_core/services/update_content_service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "sortByBestMatch",
+    "memberof": "services/update_content_service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "services/update_content_service.js~sortByBestMatch",
+    "access": "public",
+    "export": false,
+    "importPath": "Antares/services/update_content_service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "one",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "two",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "kind": "index",
+    "content": "# Antares\n\nA simple and lean blog publishing CMS built on Node, Express and Mongoose.\n\nUnder active development.",
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"Antares\",\n  \"version\": \"0.0.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"test\": \"jasmine\"\n  },\n  \"engines\": {\n    \"node\": \"~4.2.1\",\n    \"npm\": \"~2.2.0\"\n  },\n  \"dependencies\": {\n    \"body-parser\": \"^1.15.2\",\n    \"cookie-parser\": \"~1.4.3\",\n    \"debug\": \"~2.2.0\",\n    \"esdoc\": \"^1.0.1\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"~4.13.4\",\n    \"jade\": \"~1.11.0\",\n    \"method-override\": \"^2.3.7\",\n    \"mongoose\": \"^4.8.5\",\n    \"morgan\": \"~1.7.0\",\n    \"request\": \"2.81.0\",\n    \"serve-favicon\": \"~2.3.0\"\n  },\n  \"devDependencies\": {\n    \"gulp\": \"^3.9.1\",\n    \"gulp-clean-css\": \"^3.7.0\",\n    \"gulp-concat\": \"^2.6.1\",\n    \"gulp-concat-js\": \"^0.1.0\",\n    \"gulp-minify\": \"^1.0.0\",\n    \"gulp-sass\": \"^3.1.0\",\n    \"gulp-sourcemaps\": \"^2.6.1\",\n    \"jasmine\": \"^2.7.0\",\n    \"jasmine-node\": \"^1.14.5\",\n    \"mocha\": \"^3.5.0\",\n    \"nodemon\": \"^1.11.0\"\n  }\n}\n",
+    "longname": "/Users/jorge/Library/Mobile Documents/com~apple~CloudDocs/Antares CMS/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]
