@@ -7,11 +7,14 @@ const mongoose = require('mongoose'),
 // subdocuments
 const dateSchema = require('mongoose').model('Date').schema;
 
+/**
+ * The schema for cities
+ */
 let citySchema = new Schema({
   // date
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     name: {
       type: String,
       required: true

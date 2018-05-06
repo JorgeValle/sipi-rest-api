@@ -5,17 +5,15 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
 /**
- *
+ * The schema for dates, meant to be used as subdocument
  */
 let dateSchema = new Schema({
   created: {
     type: Date,
-    default: Date.now(),
     require: true
   },
   lastModified: {
     type: Date,
-    default: Date.now(),
     required: true
   }
 });

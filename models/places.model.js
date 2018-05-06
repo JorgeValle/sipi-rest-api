@@ -11,7 +11,7 @@ const addressSchema = require('mongoose').model('Address').schema,
       imageSchema = require('mongoose').model('Image').schema;
 
 /**
- * The schema for the place
+ * The schema for a place
  */
 let placeSchema = new Schema({
   // address
@@ -36,8 +36,8 @@ let placeSchema = new Schema({
   date: dateSchema,
   // images
   images: [imageSchema],
-  // native
-  native: {
+  // content
+  content: {
     name: {
       type: String,
       required: true,

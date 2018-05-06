@@ -8,10 +8,10 @@ const mongoose = require('mongoose'),
 const dateSchema = require('mongoose').model('Date').schema;
 
 let reviewSchema = new Schema({
-  // date properties
+  // date
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     body: {
       type: String,
       required: true,

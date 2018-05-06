@@ -14,8 +14,8 @@ const dateSchema = require('mongoose').model('Date').schema,
 let pageSchema = new Schema({
   // dates
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     title: {
       type: String,
       required: true,

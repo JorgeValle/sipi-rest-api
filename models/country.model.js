@@ -7,11 +7,14 @@ const mongoose = require('mongoose'),
 // subdocuments
 const dateSchema = require('mongoose').model('Date').schema;
 
+/**
+ * The schema for countries
+ */
 let countrySchema = new Schema({
   // date
   date: dateSchema,
   // native
-  native: {
+  content: {
     name: {
       type: String,
       required: true,

@@ -7,11 +7,14 @@ const mongoose = require('mongoose'),
 // subdocuments
 const dateSchema = require('mongoose').model('Date').schema;
 
+/**
+ * The schema for replies
+ */
 let replySchema = new Schema({
-  // date properties
+  // date
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     body: {
       type: String,
       required: true,

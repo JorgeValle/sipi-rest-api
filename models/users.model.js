@@ -11,13 +11,16 @@ const addressSchema = require('mongoose').model('Address').schema,
       dateSchema = require('mongoose').model('Date').schema,
       imageSchema = require('mongoose').model('Image').schema;
 
+// services
+const environmentService = require('../services/environment.service');
+
 /**
  * The schema for users
  */
 let userSchema = new Schema({
   // address
   address: addressSchema,
-  //auth
+  // auth
   auth: {
     hash: {
       type: String,
@@ -30,12 +33,12 @@ let userSchema = new Schema({
   },
   // date
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     bio: {
       type: String,
       maxLength: 150,
-      default: 'Este usuario misterioso aun no ha llenado su biografia.'
+      default: 'Este usuario aun no ha llenado su biografia.'
     },
     email: {
       type: String,
@@ -144,7 +147,7 @@ userSchema.methods.generateJWT = function() {
     email: this.email,
     name: this.name,
     exp: parseInt(expiry.getTime()/1000),
-  },'thisissecret');  // replace with env variable on heroku
+  }, environmentService.returnJwtSecret());
 
 };
 

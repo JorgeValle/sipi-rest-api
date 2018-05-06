@@ -8,11 +8,14 @@ const mongoose = require('mongoose'),
 const dateSchema = require('mongoose').model('Date').schema,
       imageSchema = require('mongoose').model('Image').schema;
 
+/**
+ * The schema for categories
+ */
 let categorySchema = new Schema({
   // date
   date: dateSchema,
-  // native
-  native: {
+  // content
+  content: {
     name: {
       type: String,
       required: true
