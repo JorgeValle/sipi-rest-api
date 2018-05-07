@@ -57,7 +57,7 @@ module.exports.login = function(req, res) {
   // use the local passport strategy
   passport.authenticate('local', function(err, user, info) {
 
-    var token;
+    let token = '';
 
     // for if passport fails
     if (err) {
@@ -104,7 +104,7 @@ module.exports.signup = function(req, res) {
 
   // create the new user object from request body
   let newUser = new user({
-    personal: {
+    content: {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email
@@ -114,16 +114,21 @@ module.exports.signup = function(req, res) {
     }
   });
 
-  // run method to set hash and salt
-  newUser.setPassword(req.body.password);
+  let stringifiedPassword = (req.body.password).toString();
+
+  // run method to set hash and salt for password
+  newUser.setPassword(stringifiedPassword);
 
   // @todo Bring in the id service
   // temporarily set id
   newUser.system.id = Math.floor((Math.random() * 1000) + 1);
 
+  /**
+   * Save the new user
+   */
   newUser.save(function(err, newUser) {
   
-    var token;
+    let token = '';
     
     if (err) {
       console.log(err);
