@@ -35,12 +35,11 @@ let categorySchema = new Schema({
       type: Number,
       required: true,
       unique: true
-    },
-    iconId: String,
-    listings: {
-      type: Number,
-      default: 0
     }
+  },
+  // presentation
+  presentation: {
+    iconId: String
   }
 });
 
