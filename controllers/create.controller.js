@@ -45,13 +45,16 @@ module.exports.createCategory = function(req, res) {
         },
         // system
         system: {
-          id: databaseService.increaseByOne(numberOfEntries),
-          iconId: req.body.iconId
+          id: databaseService.increaseByOne(numberOfEntries)
         },
         // date
         date: {
           created: new Date(),
           modified: new Date()
+        },
+        // presentation
+        presentation: {
+          iconId: req.body.iconId
         }
       });
 
