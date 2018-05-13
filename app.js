@@ -8,7 +8,8 @@ const bodyParser = require('body-parser'),
       methodOverride = require('method-override'),
       passport = require('passport'),
       path = require('path'),
-      multer = require('multer');
+      multer = require('multer'),
+      secure = require('express-force-https');
 
 // the entry point for the database connection
 require('./models/entry-point.model.js');
@@ -32,6 +33,9 @@ app.use(logger('dev'));
 
 // set view engine
 app.set('view engine', 'pug');
+
+// forcing https
+app.use(secure);
 
 // for dev only, allow cors
 app.use(cors());
