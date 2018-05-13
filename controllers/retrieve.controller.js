@@ -22,11 +22,12 @@ const category = mongoose.model('Category'),
  * Retrieves all categories
  * @param {object} req - The request object
  * @param {object} res - The response object
- * @param {object} err - If present, the error object
+ * @returns {string} - The JSON response, 200 if ok
+ * @since 3.0.0
  */
 module.exports.retrieveAllCategories = function(req, res) {
 
-  // find all categories and return them
+  // find and return all categories
   category.find({}).exec(function(err, categories) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
@@ -38,36 +39,15 @@ module.exports.retrieveAllCategories = function(req, res) {
 }
 
 /**
- * Retrieves category filters by category id
- * @param {object} req - The request object
- * @param {object} res - The response object
- * @param {object} err - If present, the error object
- */
-module.exports.retrieveCategoryFilters = function(req, res) {
-
-  let categoryId = req.params.categoryId;
-
-  // find all subcategories and return them
-  categoryFilter.find({}).exec(function(err, categoryFilters) {
-    if (err) {
-      jsonService.sendResponse(res, 400, err);
-    } else {
-      jsonService.sendResponse(res, 200, categoryFilters);
-    }
-  });
-
-
-}
-
-/**
  * Retrieves all cities by country id
  * @param {object} req - The request object
  * @param {object} res - The response object
- * @param {object} err - If present, the error object
+ * @returns {string} - The JSON response, 200 if ok
+ * @since 3.0.0
  */
 module.exports.retrieveCitiesByCountryId = function(req, res) {
 
-  let countryId = req.params.countryId;
+  const countryId = req.params.countryId;
 
   // find all cities that match the country id, and return them
   city.find({
@@ -86,7 +66,7 @@ module.exports.retrieveCitiesByCountryId = function(req, res) {
  * Retrieves all countries
  * @param {object} req - The request object
  * @param {object} res - The response object
- * @param {object} err - If present, the error object
+ * @returns {string} - The JSON string, 200 if ok
  */
 module.exports.retrieveAllCountries = function(req, res) {
 
@@ -110,8 +90,9 @@ module.exports.retrieveAllCountries = function(req, res) {
  */
 module.exports.retrievePageById = function(req, res) {
 
-  let pageId = req.params.pageId;
+  const pageId = req.params.pageId;
 
+  // find page by id
   page.find({
     'system.id': pageId
   }).exec(function(err, page) {
@@ -414,5 +395,27 @@ module.exports.pollUser = function(req, res) {
   }).exec(function(err, user) {
     jsonService.sendResponse(res, 200, user);
   });
+
+}
+
+/**
+ * Retrieves category filters by category id
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @param {object} err - If present, the error object
+ */
+module.exports.retrieveCategoryFilters = function(req, res) {
+
+  let categoryId = req.params.categoryId;
+
+  // find all subcategories and return them
+  categoryFilter.find({}).exec(function(err, categoryFilters) {
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    } else {
+      jsonService.sendResponse(res, 200, categoryFilters);
+    }
+  });
+
 
 }
