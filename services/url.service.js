@@ -5,9 +5,17 @@
  * @param {string} stringToSlug - the user object
  */
 module.exports.sluggify = function(stringToSlug) {
+  
+  try {
 
-  let sluggified = stringToSlug.trim().split(' ').join('-').toLowerCase();
+    let sluggified = stringToSlug.trim().split(' ').join('-').toLowerCase();
 
-  return sluggified;
+    return sluggified;
+
+  } catch (err) {
+
+    console.log(`Error during sluggifying string: ${err}`);
+
+  }
 
 };
