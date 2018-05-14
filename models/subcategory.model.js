@@ -19,11 +19,13 @@ let subcategorySchema = new Schema({
     name: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      unique: true
     },
     slug: {
       type: String
-    }
+    },
+    summary: String
   },
   // system
   system: {

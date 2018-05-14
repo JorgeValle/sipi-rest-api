@@ -21,62 +21,6 @@ const category = mongoose.model('Category'),
       user = mongoose.model('User');
 
 /**
- * Creates a category after we have queried latest count
- * @param {object} req - The request object
- * @param {object} res - The response object
- * @param {object} err - If present, the error object
- * @param {object} newCategory - The new category we want to create
- * @returns {object} - If successful, will return the newly created category; if unsuccesful, returns the error object - both in JSON format
- */
-module.exports.createCategory = function(req, res) {
-
-  // we need a password passed in
-  if (req.body.password === environmentService.returnApiPassword()) {
-
-    // once we have count, we save
-    let categoryCount = category.count({}, function(err, numberOfEntries) {
-
-      let newCategory = new category({
-        // content
-        content: {
-          name: req.body.name,
-          slug: urlService.sluggify(req.body.name),
-          summary: req.body.summary
-        },
-        // system
-        system: {
-          id: databaseService.increaseByOne(numberOfEntries),
-          iconId: req.body.iconId
-        },
-        // date
-        date: {
-          created: new Date(),
-          modified: new Date()
-        }
-      });
-
-      /**
-       * Saves out the new category object
-       */
-      newCategory.save(function(err, newCategory) {
-        if (err) {
-          jsonService.sendResponse(res, 400, err);
-        } else {
-          jsonService.sendResponse(res, 201, newCategory);
-        }
-      });
-
-    });
-
-  } else {
-
-    jsonService.sendResponse(res, 403, 'No chance');
-
-  }
-
-}
-
-/**
  * Creates a country after we have queried latest count
  * @param {object} req - The request object
  * @param {object} res - The response object
@@ -288,6 +232,65 @@ module.exports.createPlace = function(req, res) {
 }
 
 /**
+ * Creates a category after we have queried latest count
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @param {object} err - If present, the error object
+ * @param {object} newCategory - The new category we want to create
+ * @returns {object} - If successful, will return the newly created category; if unsuccesful, returns the error object - both in JSON format
+ */
+module.exports.createCategory = function(req, res) {
+
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
+
+    // once we have count, we save
+    let categoryCount = category.count({}, function(err, numberOfEntries) {
+
+      let newCategory = new category({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name),
+          summary: req.body.summary
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries)
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        },
+        // presentation
+        presentation: {
+          iconId: req.body.iconId
+        }
+      });
+
+      /**
+       * Saves out the new category object
+       */
+      newCategory.save(function(err, newCategory) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newCategory);
+        }
+      });
+
+    });
+
+  } else {
+
+    jsonService.sendResponse(res, 403, 'No chance');
+
+  }
+
+}
+
+/**
  * Creates a subcategory
  * @todo Finish implementing this
  * @param {object} req - The request object
@@ -306,7 +309,8 @@ module.exports.createSubcategory = function(req, res) {
         // content
         content: {
           name: req.body.name,
-          slug: urlService.sluggify(req.body.name)
+          slug: urlService.sluggify(req.body.name),
+          summary: req.body.summary
         },
         // system
         system: {
