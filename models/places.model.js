@@ -22,6 +22,10 @@ let placeSchema = new Schema({
       type: String,
       required: true
     },
+    id: {
+      type: Number,
+      required: true
+    },
     subcats: {
       type: [String]
     }

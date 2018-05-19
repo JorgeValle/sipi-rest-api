@@ -209,7 +209,8 @@ module.exports.createPlace = function(req, res) {
         },
         // category
         category: {
-          name: req.body.category
+          name: req.body.category,
+          id: req.body.categoryId
         },
         // system
         system: {
