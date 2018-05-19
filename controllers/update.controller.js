@@ -5,7 +5,10 @@ const mongoose = require('mongoose'),
       fs = require('fs');
 
 // services
-const jsonService = require('../services/json.service');
+const urlService = require('../services/url.service'),
+      databaseService = require('../services/database.service'),
+      jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
 // models
 const category = mongoose.model('Category'),
@@ -62,12 +65,15 @@ module.exports.updatePageById = function(req, res) {
  */
 module.exports.updatePlaceById = function(req, res) {
 
+  console.log('updatePlaceById ran');
+
   // we need a password passed in
   if (req.body.password === environmentService.returnApiPassword()) {
 
     // grab all values from request object
     let placeId = req.body.placeId,
         category = req.body.category,
+        categoryId = req.body.categoryId,
         subcategories = req.body.subcategories,
         city = req.body.city,
         country = req.body.country,
@@ -85,9 +91,14 @@ module.exports.updatePlaceById = function(req, res) {
         jsonService.sendResponse(res, 400, err);
       }
 
+      if (!place) {
+        jsonService.sendResponse(res, 404, 'No such place');
+      }
+
       // we set the updated properties, if they exist
       place.category = {
         name: category,
+        id: categoryId,
         subcats: subcategories
       };
 
@@ -101,7 +112,8 @@ module.exports.updatePlaceById = function(req, res) {
       place.address = {
         city: city,
         country: country,
-        street: street
+        street: street,
+        number: number
       };
 
       // contact
