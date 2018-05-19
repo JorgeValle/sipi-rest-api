@@ -195,39 +195,47 @@ module.exports.createPage = function(req, res) {
  */
 module.exports.createPlace = function(req, res) {
 
-  // once we have count, we save
-  let placeCount = place.count({}, function(err, numberOfEntries) {
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-    let getUser = function() {
-      return 12;
-    };
+    // once we have count, we save
+    let placeCount = place.count({}, function(err, numberOfEntries) {
 
-    let newPlace = new place({
-      native: {
-        name: req.body.name,
-        slug: urlService.sluggify(req.body.name)
-      },
-      category: {
-        name: req.body.category
-      },
-      system: {
-        id: databaseService.increaseByOne(numberOfEntries),
-        ownerId: getUser()
-      }
+      let newPlace = new place({
+        // content
+        content: {
+          name: req.body.name,
+          slug: urlService.sluggify(req.body.name)
+        },
+        // category
+        category: {
+          name: req.body.category
+        },
+        // system
+        system: {
+          id: databaseService.increaseByOne(numberOfEntries)
+        },
+        // date
+        date: {
+          created: new Date(),
+          modified: new Date()
+        }
+      });
+
+      // save the place to the database, if all goes well
+      newPlace.save(function(err, newPlace) {
+
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 201, newPlace);
+        }
+
+      });
+
     });
 
-    // save the place to the database, if all goes well
-    newPlace.save(function(err, newPlace) {
-
-      if (err) {
-        jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 201, newPlace);
-      }
-
-    });
-
-  });
+  }
 
 }
 

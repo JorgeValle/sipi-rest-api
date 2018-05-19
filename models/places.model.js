@@ -26,16 +26,8 @@ let placeSchema = new Schema({
       type: [String]
     }
   },
-  // claimed
-  claimed: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-  // date properties
+  // date
   date: dateSchema,
-  // images
-  images: [imageSchema],
   // content
   content: {
     name: {
@@ -43,49 +35,26 @@ let placeSchema = new Schema({
       required: true,
       unique: true
     },
-    email: {
-      type: String,
-      unique: true
-    },
     slug: String,
-    website: String
   },
-  // reviews
-  reviews: {
-    amount: {
-      type: Number,
-      required: true,
-      default: 0
+  // contact
+  contact: {
+    website: {
+      type: String
     },
-    value: {
-      type: Number,
-      required: true,
-      default: 0
+    email: {
+      type: String
+    },
+    phone: {
+      type: Number
     }
   },
   // system
   system: {
-    hits: {
-      type: Number,
-      default: 0
-    },
     id: {
       type: Number,
       required: true,
       unique: true
-    },
-    locked: {
-      type: Boolean,
-      required: true,
-      default: false
-    },
-    ownerId: {
-      type: Number
-    },
-    published: {
-      type: Boolean,
-      required: true,
-      default: false
     }
   }
 });
