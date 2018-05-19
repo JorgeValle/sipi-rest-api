@@ -62,51 +62,66 @@ module.exports.updatePageById = function(req, res) {
  */
 module.exports.updatePlaceById = function(req, res) {
 
-  // grab all values from request object
-  let placeId = req.body.placeId,
-      category = req.body.category,
-      subcategories = req.body.subcategories,
-      city = req.body.city,
-      country = req.body.country,
-      street = req.body.street,
-      number = req.body.number;
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
 
-  place.findOne({
-    'system.id': placeId
-  }, function(err, place) {
+    // grab all values from request object
+    let placeId = req.body.placeId,
+        category = req.body.category,
+        subcategories = req.body.subcategories,
+        city = req.body.city,
+        country = req.body.country,
+        street = req.body.street,
+        number = req.body.number,
+        website = req.body.website,
+        email = req.body.email,
+        phone = req.body.phone;
 
-    if (err) {
-      jsonService.sendResponse(res, 400, err);
-    }
+    place.findOne({
+      'system.id': placeId
+    }, function(err, place) {
 
-    // we set the updated properties, if they exist
-    place.category = {
-      name: category,
-      subcats: subcategories
-    };
-
-    // get owner id here
-    place.system.ownerId = 11;
-    place.system.published = true;
-
-    place.date.created = Date.now();
-
-    place.address = {
-      city: city,
-      country: country,
-      street: street
-    };
-
-    // finally we save the new object
-    place.save(function(err, updatedPlace) {
       if (err) {
         jsonService.sendResponse(res, 400, err);
-      } else {
-        jsonService.sendResponse(res, 200, updatedPlace);
       }
+
+      // we set the updated properties, if they exist
+      place.category = {
+        name: category,
+        subcats: subcategories
+      };
+
+      // system
+      place.system.published = true;
+
+      // date
+      place.date.modified = Date.now();
+
+      // address
+      place.address = {
+        city: city,
+        country: country,
+        street: street
+      };
+
+      // contact
+      place.contact = {
+        email: email,
+        phone: phone,
+        website: website
+      }
+
+      // finally we save the new object
+      place.save(function(err, updatedPlace) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 200, updatedPlace);
+        }
+      });
     });
 
-  });
+  }
 }
 
 /**
