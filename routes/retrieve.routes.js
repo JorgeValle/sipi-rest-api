@@ -5,7 +5,7 @@ const express = require('express'),
       retrieveCtrl = require('../controllers/retrieve.controller');
 
 /** Search endpoints */
-router.get('/place/:term', retrieveCtrl.retrievePlacesByTerm);
+// router.get('/place/:term', retrieveCtrl.retrievePlacesByTerm);
 router.get('/location/:term', retrieveCtrl.retrieveLocationsByTerm);
 
 /** Retrieve endpoints */

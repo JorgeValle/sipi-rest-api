@@ -180,11 +180,11 @@ module.exports.retrievePlacesByTerm = function(req, res) {
 module.exports.retrieveAllPlaces = function(req, res) {
 
   // return only if published
-  let conditionalQuery = {
-    'system.published': true
-  };
+  // let conditionalQuery = {
+  //   'system.published': true
+  // };
 
-  place.find(conditionalQuery).exec(function(err, places) {
+  place.find({}).exec(function(err, places) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
     } else {
@@ -226,14 +226,16 @@ module.exports.retrievePlacesByOwnerId = function(req, res) {
  */
 module.exports.retrievePlaceById = function(req, res) {
 
+  console.log('retrievePlaceById ran');
+
   let conditionalQuery = {
     'system.id': req.params.placeId,
-    'system.published': false
+    // 'system.published': false
   }
 
-  place.find({
+  place.find(
     conditionalQuery
-  }).exec(function(err, place) {
+  ).exec(function(err, place) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
     } else {
