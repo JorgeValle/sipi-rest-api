@@ -119,7 +119,7 @@ module.exports.retrieveLocationsByTerm = function(req, res) {
 
   // return only if published
   let conditionalQuery = {
-    'native.name': {
+    'content.name': {
       $regex: term,
       $options: 'i'
     }
@@ -151,7 +151,7 @@ module.exports.retrievePlacesByTerm = function(req, res) {
 
   // return only if published
   let conditionalQuery = {
-    'native.name': {
+    'content.name': {
       $regex: term,
       $options: 'i'
     }
