@@ -11,11 +11,11 @@ const authCtrl = require('../controllers/auth.controller.js');
 // services
 const environmentService = require('../services/environment.service');
 
-// for auth
-let auth = jwt({
-  secret: environmentService.returnJwtSecret(),
-  userProperty: 'payload'
-});
+// // for auth
+// let auth = jwt({
+//   secret: environmentService.returnJwtSecret(),
+//   userProperty: 'payload'
+// });
 
 /**
  * Authentication endpoints
