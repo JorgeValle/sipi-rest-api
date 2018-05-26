@@ -239,7 +239,8 @@ module.exports.retrievePlaceById = function(req, res) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
     } else {
-      jsonService.sendResponse(res, 200, place);
+      // set to first index, as we only ever return one entry from here, and it makes JSON cleaner
+      jsonService.sendResponse(res, 200, place[0]);
     }
   });
 
