@@ -146,11 +146,15 @@ module.exports.updatePlaceAmenitiesById = function(req, res) {
   let placeId = req.body.placeId;
   
   place.findOne({
-    id: placeId
+    'system.id': placeId
   }, function(err, place) {
 
     if (err) {
       jsonService.sendResponse(res, 400, err);
+    }
+
+    if (!place) {
+      jsonService.sendResponse(res, 404);
     }
 
     // we update the amenities
@@ -180,16 +184,19 @@ module.exports.updatePlaceCoordinatesById = function(req, res) {
   let placeId = req.body.placeId;
   
   place.findOne({
-    id: placeId
+    'system.id': placeId
   }, function(err, place) {
     
+    if (!place) {
+      jsonService.sendResponse(res, 404, 'No such place');
+    }
 
     if (err) {
       jsonService.sendResponse(res, 400, err);
     }
 
     // we update the coordinates
-    place.coordinates = {
+    place.address.coordinates = {
       lat: req.body.lat,
       lng: req.body.lng
     }
@@ -396,6 +403,10 @@ module.exports.updateUserNotifications = function(req, res) {
 
     if (err) {
       jsonService.sendResponse(res, 400, err);
+    }
+
+    if (!place) {
+      jsonService.sendResponse(res, 404);
     }
 
     console.log(req.body.notifications);
