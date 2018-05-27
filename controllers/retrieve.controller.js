@@ -263,33 +263,36 @@ module.exports.retrievePlacesByCategory = function(req, res) {
  * @param {object} req - The request object
  * @param {object} res - The response object
  * @param {object} err - If present, the error object
+ * @todo Finish the search method
  */
 module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
   let term = req.query.q,
       location = req.query.l;
 
-  // constructing the query dynamically
-  let query = {};
+  let query;
 
-  if (term != undefined) {
+  // this will have to evolve as time goes by
+  if (term || location) {
 
-    // Will I need to search for name in here? If it matches on the name, the auto suggest click should take you directly to the listing profile
-    // query.name = term;
-    query['category.name'] = term;
-    // query['category.subcats'] = term;
+    query = [
+      {'name': term},
+      {'category.name': term},
+      {'address.city': location},
+      {'address.country': location}
+    ];
 
-  } else if (location != undefined) {
+  } else {
 
-    // searching neighbourhood, city and country
-    query['address.neighborhood'] = location;
-    query['address.city'] = location;
-    query['address.country'] = location;
+    query = [{}];
 
   }
 
+
   place
-  .find( { $or:[query] } )
+  .find({
+    $or: query
+  })
   .exec(function(err, places) {
     jsonService.sendResponse(res, 200, places);
   });
