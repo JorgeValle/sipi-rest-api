@@ -276,7 +276,7 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
   console.log(`location is ${location}`);
 
   // this will have to evolve as time goes by
-  if (term !== undefined || location !== undefined) {
+  if (term || location) {
 
     query = [
       {'name': term},
