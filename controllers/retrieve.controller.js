@@ -272,8 +272,11 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
   let query;
 
+  console.log(`term is ${term}`);
+  console.log(`location is ${location}`);
+
   // this will have to evolve as time goes by
-  if (term || location) {
+  if (term !== undefined || location !== undefined) {
 
     query = [
       {'name': term},
@@ -288,13 +291,17 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
   }
 
-
+  // the main query
   place
   .find({
     $or: query
   })
   .exec(function(err, places) {
-    jsonService.sendResponse(res, 200, places);
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    } else {
+      jsonService.sendResponse(res, 200, places);
+    }
   });
 
 }
