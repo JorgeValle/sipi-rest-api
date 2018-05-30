@@ -61,7 +61,7 @@ app.use('/upload', uploadRoutes);
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send('Sipi Rest API v3.2.0');
+  res.send('Sipi Rest API v3.2.1');
 })
 
 // catch 404 and forward to error handler

@@ -267,35 +267,89 @@ module.exports.retrievePlacesByCategory = function(req, res) {
  */
 module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
-  let term = req.query.q,
-      location = req.query.l;
+  const term = req.query.q,
+        location = req.query.l;
+
+  let termIsPresent;
+
+  if (typeof term != 'undefined' && term !== '') {
+    termIsPresent = true;
+  }
+
+  let locationIsPresent;
+
+  if (typeof location != 'undefined' && location !== '') {
+    locationIsPresent = true;
+  }
 
   let query;
 
-  console.log(`term is ${term}`);
-  console.log(`location is ${location}`);
+  // both are present
+  if (termIsPresent && locationIsPresent) {
+    query = {
+      $and: [
+        {
+          $or: [
+            {
+              'name': term
+            },
+            {
+              'category.name': term
+            }
+          ]
+        },
+        {
+          $or: [
+            {
+              'address.city': location
+            },
+            {
+              'address.country': location
+            }
+          ]
+        },
+      ]
+    };
+  }
+  
+  // term is present
+  else if (termIsPresent) {
+    query = {
+      $or: [
+        {
+          'name': term
+        },
+        {
+          'category.name': term
+        }
+      ]
+    };
+  }
+  
+  // location is present
+  else if (locationIsPresent) {
 
-  // this will have to evolve as time goes by
-  if (term || location) {
-
-    query = [
-      {'name': term},
-      {'category.name': term},
-      {'address.city': location},
-      {'address.country': location}
-    ];
-
-  } else {
-
-    query = [{}];
-
+    console.log('location is present');
+    query = {
+      $or: [
+        {
+          'address.city': location
+        },
+        {
+          'address.country': location
+        }
+      ]
+    };
+  }
+  
+  // neither are present
+  else {
+    query = {};
   }
 
   // the main query
   place
-  .find({
-    $or: query
-  })
+  .find(query)
   .exec(function(err, places) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
