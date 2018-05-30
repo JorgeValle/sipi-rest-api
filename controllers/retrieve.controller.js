@@ -272,13 +272,13 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
   let termIsPresent;
 
-  if (typeof term != 'undefined' && term !== '') {
+  if (typeof term != 'undefined' && term !== '' && term !== 'undefined') {
     termIsPresent = true;
   }
 
   let locationIsPresent;
 
-  if (typeof location != 'undefined' && location !== '') {
+  if (typeof location != 'undefined' && location !== '' && location !== 'undefined') {
     locationIsPresent = true;
   }
 
