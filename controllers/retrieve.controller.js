@@ -2,10 +2,12 @@
 
 // packages
 const mongoose = require('mongoose'),
-      fs = require('fs');
+      fs = require('fs'),
+      request = require('request');
 
 // services
-const jsonService = require('../services/json.service');
+const jsonService = require('../services/json.service'),
+      environmentService = require('../services/environment.service');
 
 // models
 const category = mongoose.model('Category'),
@@ -495,19 +497,28 @@ module.exports.retrieveCategoryFilters = function(req, res) {
   });
 }
 
+
 /**
  * Retrieves the sitemap, destined for consumption in XML format
+ * @param {*} req 
+ * @param {*} res 
  */
 module.exports.retrieveSitemap = function(req, res) {
 
-  place.find({}).exec(function(err, places) {
-    if (err) {
-      jsonService.sendResponse(res, 400, err);
-    } else {
-      jsonService.sendResponse(res, 200, places);
-    }
-  });
+  let requestOptions = {
+    url: environmentService.returnBaseUrl() + '/retrieve/places',
+    method: 'GET'
+  };
 
+  request(requestOptions, function(err, response, body) {
+
+    if (err) {
+      console.log('Request error' + err);
+    } else {
+      renderSitemap(req, res, body);
+    }
+
+  });
 }
 
 /**

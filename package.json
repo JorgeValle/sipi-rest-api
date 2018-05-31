@@ -40,7 +40,7 @@
     "passport-local": "1.0.0",
     "public-ip": "^2.4.0",
     "pug": "2.0.0-rc.3",
-    "request": "^2.81.0",
+    "request": "2.81.0",
     "run-middleware": "^0.6.6",
     "serve-favicon": "2.3.0"
   },

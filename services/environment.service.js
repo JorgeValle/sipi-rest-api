@@ -1,14 +1,22 @@
 'use strict';
 
+Error.prototype.SipiError;
+
 /**
  * Returns values for Mailgun email automation services
  * @returns {object} - the object composed of key and domain
  */
 module.exports.returnMailgun = function() {
 
-  return {
-    key: process.env.MAILGUN_KEY,
-    domain: process.env.MAILGUN_DOMAIN
+  try {
+    return {
+      key: process.env.MAILGUN_KEY,
+      domain: process.env.MAILGUN_DOMAIN
+    }
+  } catch(err) {
+    
+    throw new SipiError('Mailgun: key or domain is not available in environment.');
+
   }
 
 }
@@ -19,7 +27,15 @@ module.exports.returnMailgun = function() {
  */
 module.exports.returnApiPassword = function() {
 
-  return process.env.API_PASSWORD;
+  try {
+
+    return process.env.API_PASSWORD;
+
+  } catch(err) {
+
+    throw new SipiError('Api: password is not available in environment');
+
+  }
 
 }
 
@@ -28,7 +44,15 @@ module.exports.returnApiPassword = function() {
  */
 module.exports.returnDbUri = function() {
 
-  return process.env.MONGOLAB_URI;
+  try {
+
+    return process.env.MONGOLAB_URI;
+  
+  } catch(err) {
+  
+    throw new SipiError('Mongolab: database URI is not available in environment');
+
+  } 
 
 }
 
@@ -37,6 +61,25 @@ module.exports.returnDbUri = function() {
  */
 module.exports.returnJwtSecret = function() {
 
-  return process.env.JWT_SECRET;
+  try {
 
+    return process.env.JWT_SECRET;
+
+  } catch(err) {
+
+    throw new SipiError('Json Web Token: secret is not available in environment');
+    
+  }
 }
+
+/**
+ * Returns the base url
+ */
+module.exports.returnBaseUrl = function() {
+  
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://sipi-rest-api.herokuapp.com';
+  } else {
+    return 'http://localhost:4100';
+  }
+};
