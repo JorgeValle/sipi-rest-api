@@ -25,5 +25,7 @@ router.get('/users', retrieveCtrl.retrieveAllUsers);
 router.get('/user/:id', retrieveCtrl.retrieveUserById);
 router.get('/user/notifications/:id', retrieveCtrl.retrieveUserNotifications);
 router.get('/user/poll/:id', retrieveCtrl.pollUser);
+router.get('/sitemap.xml', retrieveCtrl.retrieveSitemap);
+// router.get('/robots.txt', retrieveCtrl.renderRobots);
 
 module.exports = router;  // export for use in rest of app

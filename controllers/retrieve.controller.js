@@ -18,6 +18,22 @@ const category = mongoose.model('Category'),
       subcategory = mongoose.model('Subcategory'),
       user = mongoose.model('User');
 
+
+/**
+ * Renders the sitemap data using the sitemap pug file
+ * @param {*} req 
+ * @param {*} res
+ * @param {*} responseBody 
+ */
+const renderSitemap = function(req, res, responseBody) {
+  res.render('sitemap', {
+    documentTitle: 'Sitemap',
+    canonicalUrl: `https://www.sipi.app/${req.url}`,
+    // we parse JSON response to get properties ready for consumption in pug templates
+    apiResponse: JSON.parse(responseBody)
+  });
+};
+
 /**
  * Retrieves all categories
  * @param {object} req - The request object
@@ -477,6 +493,33 @@ module.exports.retrieveCategoryFilters = function(req, res) {
       jsonService.sendResponse(res, 200, categoryFilters);
     }
   });
+}
 
+/**
+ * Retrieves the sitemap, destined for consumption in XML format
+ */
+module.exports.retrieveSitemap = function(req, res) {
+
+  place.find({}).exec(function(err, places) {
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    } else {
+      jsonService.sendResponse(res, 200, places);
+    }
+  });
 
 }
+
+/**
+ * Renders the robots.txt
+ */
+// module.exports.renderRobots = function(req, res) {
+
+//   res.render('robots', {
+//     documentTitle: 'Sitemap',
+//     canonicalUrl: `https://www.sipi.app/${req.url}`,
+//     // we parse JSON response to get properties ready for consumption in pug templates
+//     apiResponse: JSON.parse(responseBody)
+//   });
+
+// }

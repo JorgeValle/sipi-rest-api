@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+urlset(xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
+  url
+    loc='https://www.sipi.app'
+  each place in apiResponse
+    url
+      loc=`https://www.sipi.app/lugar/${place.system.id}`
+      lastmod=`${place.date.modified}`
+      changefreq='daily'
+      priority='0.5'
