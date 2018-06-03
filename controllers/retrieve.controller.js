@@ -116,7 +116,9 @@ module.exports.retrievePageById = function(req, res) {
   }).exec(function(err, page) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
-    } else {
+    } else if (!page) {
+     jsonService.sendResponse(res, 404, 'No such page'); 
+    }else {
       jsonService.sendResponse(res, 200, page);
     }
   });
