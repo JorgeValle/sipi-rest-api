@@ -14,7 +14,7 @@ router.get('/categoryfilters/:categoryId', retrieveCtrl.retrieveCategoryFilters)
 router.get('/cities/:countryId', retrieveCtrl.retrieveCitiesByCountryId);
 router.get('/countries', retrieveCtrl.retrieveAllCountries);
 router.get('/notifications/:id', retrieveCtrl.retrieveUserNotifications);
-router.get('/page/:pageId', retrieveCtrl.retrievePageById);
+router.get('/page/:pageSlug', retrieveCtrl.retrievePageBySlug);
 router.get('/places', retrieveCtrl.retrieveAllPlaces);
 router.get('/places/search', retrieveCtrl.retrievePlacesByTermAndLocation);
 router.get('/places/country/:countryName', retrieveCtrl.retrievePlacesByCountry);

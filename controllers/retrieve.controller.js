@@ -106,13 +106,13 @@ module.exports.retrieveAllCountries = function(req, res) {
  * @param {object} err - If present, the error object
  * @param {object} page - If found, the page we want
  */
-module.exports.retrievePageById = function(req, res) {
+module.exports.retrievePageBySlug = function(req, res) {
 
-  const pageId = req.params.pageId;
+  const pageSlug = req.params.pageSlug;
 
   // find page by id
   page.find({
-    'system.id': pageId
+    'content.slug': pageSlug
   }).exec(function(err, page) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
