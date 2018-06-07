@@ -118,8 +118,8 @@ module.exports.retrievePageBySlug = function(req, res) {
       jsonService.sendResponse(res, 400, err);
     } else if (!page) {
      jsonService.sendResponse(res, 404, 'No such page'); 
-    }else {
-      jsonService.sendResponse(res, 200, page);
+    } else {
+      jsonService.sendResponse(res, 200, page[0]);
     }
   });
 
