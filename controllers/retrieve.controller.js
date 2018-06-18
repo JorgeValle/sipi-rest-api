@@ -574,7 +574,7 @@ module.exports.retrievePlacesByParentId = function(req, res) {
       jsonService.sendResponse(res, 400, err);
     } else {
       // set to first index, as we only ever return one entry from here, and it makes JSON cleaner
-      jsonService.sendResponse(res, 200, place[0]);
+      jsonService.sendResponse(res, 200, places);
     }
   });
 }
