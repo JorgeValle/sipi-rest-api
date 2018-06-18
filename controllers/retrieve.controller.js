@@ -569,7 +569,7 @@ module.exports.retrievePlacesByParentId = function(req, res) {
 
   place.find(
     conditionalQuery
-  ).exec(function(err, place) {
+  ).exec(function(err, places) {
     if (err) {
       jsonService.sendResponse(res, 400, err);
     } else {
