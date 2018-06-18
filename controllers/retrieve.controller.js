@@ -561,7 +561,7 @@ module.exports.retrieveRobots = function(req, res) {
 /**
  * Retrieves the branch locations of parent place
  */
-module.exports.retrieveBranchesByParentId = function(req, res) {
+module.exports.retrievePlacesByParentId = function(req, res) {
 
   let conditionalQuery = {
     'organizational.parentId': req.params.parentId,
