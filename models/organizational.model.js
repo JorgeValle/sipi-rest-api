@@ -7,10 +7,16 @@ const mongoose = require('mongoose'),
  * The schema for a parent/branch relationships, meant to be used as a subdocument
  */
 let organizationalSchema = new Schema({
-  isBranch: Boolean,
+  isBranch: {
+    type: Boolean,
+    required: true
+  },
   parentId: Number,
   parentName: String,
-  isParent: Boolean
+  isParent: {
+    type: Boolean,
+    required: true
+  }
 });
 
 // exporting for use in other schemas

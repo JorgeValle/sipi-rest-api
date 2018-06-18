@@ -84,6 +84,7 @@ module.exports.updatePlaceById = function(req, res) {
         phone = req.body.phone,
         isParent = req.body.isParent,
         parentId = req.body.parentId,
+        parentName = req.body.parentName,
         isBranch = req.body.isBranch;
 
     place.findOne({
