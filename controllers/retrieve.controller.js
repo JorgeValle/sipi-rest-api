@@ -37,6 +37,18 @@ const renderSitemap = function(req, res, responseBody) {
 };
 
 /**
+ * Renders the robots text using the pug file
+ * @param {*} req 
+ * @param {*} res
+ * @param {*} responseBody 
+ */
+const renderRobots = function(req, res, responseBody) {
+  res.render('robots', {
+    documentTitle: 'Robots'
+  });
+};
+
+/**
  * Retrieves all categories
  * @param {object} req - The request object
  * @param {object} res - The response object
@@ -520,6 +532,50 @@ module.exports.retrieveSitemap = function(req, res) {
       renderSitemap(req, res, body);
     }
 
+  });
+}
+
+/**
+ * Retrieves the robots.txt
+ * @param {*} req 
+ * @param {*} res 
+ */
+module.exports.retrieveRobots = function(req, res) {
+
+  let requestOptions = {
+    url: environmentService.returnBaseUrl() + '/retrieve/places',
+    method: 'GET'
+  };
+
+  request(requestOptions, function(err, response, body) {
+
+    if (err) {
+      console.log('Request error' + err);
+    } else {
+      renderSitemap(req, res, body);
+    }
+
+  });
+}
+
+/**
+ * Retrieves the branch locations of parent place
+ */
+module.exports.retrieveBranchesByParentId = function(req, res) {
+
+  let conditionalQuery = {
+    'organizational.parentId': req.params.parentId,
+  }
+
+  place.find(
+    conditionalQuery
+  ).exec(function(err, place) {
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    } else {
+      // set to first index, as we only ever return one entry from here, and it makes JSON cleaner
+      jsonService.sendResponse(res, 200, place[0]);
+    }
   });
 }
 

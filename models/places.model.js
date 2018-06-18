@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
 const addressSchema = require('mongoose').model('Address').schema,
       coordinatesSchema = require('mongoose').model('Coordinates').schema,
       dateSchema = require('mongoose').model('Date').schema,
-      imageSchema = require('mongoose').model('Image').schema;
+      imageSchema = require('mongoose').model('Image').schema,
+      organizationalSchema = require('mongoose').model('Organizational').schema;
 
 /**
  * The schema for a place
@@ -16,6 +17,8 @@ const addressSchema = require('mongoose').model('Address').schema,
 let placeSchema = new Schema({
   // address
   address: addressSchema,
+  // organizational
+  organizational: organizationalSchema,
   // categories
   category: {
     name: {

@@ -2,6 +2,7 @@
 
 /**
  * Replaces accented characters with non-accented
+ * @todo Find out why this doesn't work with "Parque Zoológico Nacional Simón Bolívar"
  */
 const replaceDiacritics = function(str) {
 
@@ -32,18 +33,33 @@ module.exports.sluggify = function(str) {
   
   try {
 
-    // prettify...
-    let sluggified = str.trim().split(' ').join('-').toLowerCase();
+    let sluggified = str.trim().split(' ').join('-').toLowerCase(); // we replace spaces with dashes, and lowercase
 
-    // and also replace diacritics
-    sluggified = replaceDiacritics(sluggified);
+    sluggified = sluggified.replace("'", ""); // we replace single quotes with nothing
+ 
+    sluggified = replaceDiacritics(sluggified); // and also replace diacritics
 
     return sluggified;
 
-  } catch (err) {
+  } catch(err) {
 
     console.log(`Error during sluggifying string: ${err}`);
 
   }
 
 };
+
+/**
+ * Reverses the sluggification process
+ */
+module.exports.desluggify = function(str) {
+
+  try {
+
+    let desluggified = str.replace
+
+  } catch(err) {
+
+  }
+
+}

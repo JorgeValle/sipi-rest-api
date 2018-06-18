@@ -81,7 +81,10 @@ module.exports.updatePlaceById = function(req, res) {
         number = req.body.number,
         website = req.body.website,
         email = req.body.email,
-        phone = req.body.phone;
+        phone = req.body.phone,
+        isParent = req.body.isParent,
+        parentId = req.body.parentId,
+        isBranch = req.body.isBranch;
 
     place.findOne({
       'system.id': placeId
@@ -121,6 +124,14 @@ module.exports.updatePlaceById = function(req, res) {
         email: email,
         phone: phone,
         website: website
+      }
+
+      // organanizational
+      place.organizational = {
+        isBranch: isBranch,
+        parentId: parentId,
+        parentName: parentName,
+        isParent: isParent
       }
 
       // finally we save the new object

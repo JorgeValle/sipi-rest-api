@@ -55,6 +55,7 @@ require('./coordinates.model');
 require('./date.model');
 require('./image.model');
 require('./address.model'); // not alphabetical for execution reasons
+require('./organizational.model');
 
 // models
 require('./category.model');
