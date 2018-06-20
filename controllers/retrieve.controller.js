@@ -564,7 +564,7 @@ module.exports.retrieveRobots = function(req, res) {
 module.exports.retrievePlacesByParentId = function(req, res) {
 
   let conditionalQuery = {
-    'organizational.parentId': req.params.parentId,
+    'organizational.parent.id': req.params.parentId,
   }
 
   place.find(

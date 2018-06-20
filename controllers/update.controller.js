@@ -130,7 +130,11 @@ module.exports.updatePlaceById = function(req, res) {
       // organanizational
       place.organizational = {
         isBranch: isBranch,
-        parentId: parentId,
+        parent: {
+          id: parentId,
+          name: parentName,
+          slug: urlService.sluggify(parentName)
+        },
         parentName: parentName,
         isParent: isParent
       }

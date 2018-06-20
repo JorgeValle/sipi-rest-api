@@ -11,8 +11,11 @@ let organizationalSchema = new Schema({
     type: Boolean,
     required: true
   },
-  parentId: Number,
-  parentName: String,
+  parent: {
+   id: Number,
+   name: String,
+   slug: String 
+  },
   isParent: {
     type: Boolean,
     required: true
