@@ -198,8 +198,8 @@ module.exports.createPlace = function(req, res) {
   // we need a password passed in
   if (req.body.password === environmentService.returnApiPassword()) {
 
-    // once we have count, we save
-    let placeCount = place.count({}, function(err, numberOfEntries) {
+    // we get the latest used id first
+    databaseService.returnLatestId(place).then(function(placeWithLatestId) {
 
       let newPlace = new place({
         // content
@@ -214,7 +214,7 @@ module.exports.createPlace = function(req, res) {
         },
         // system
         system: {
-          id: databaseService.increaseByOne(numberOfEntries)
+          id: parseInt(placeWithLatestId.system.id + 1)
         },
         // date
         date: {
@@ -222,19 +222,21 @@ module.exports.createPlace = function(req, res) {
           modified: new Date()
         }
       });
-
+  
       // save the place to the database, if all goes well
       newPlace.save(function(err, newPlace) {
-
+  
         if (err) {
           jsonService.sendResponse(res, 400, err);
         } else {
           jsonService.sendResponse(res, 201, newPlace);
         }
-
+  
       });
 
     });
+
+
 
   }
 
