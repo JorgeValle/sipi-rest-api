@@ -340,7 +340,10 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
             }
           ]
         },
-      ]
+      ],
+      $and: {
+        'organizational.isBranch': false // don't list branches
+      }
     };
   }
   
@@ -354,7 +357,10 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
         {
           'category.name': term
         }
-      ]
+      ],
+      $and: {
+        'organizational.isBranch': false // don't list branches
+      }
     };
   }
   
@@ -369,14 +375,19 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
         },
         {
           'address.country': location
-        }
-      ]
+        },
+      ],
+      $and: {
+        'organizational.isBranch': false // don't list branches
+      }
     };
   }
   
   // neither are present
   else {
-    query = {};
+    query = {
+      'organizational.isBranch': false // don't list branches
+    };
   }
 
   // the main query
