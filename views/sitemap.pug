@@ -3,8 +3,22 @@ urlset(xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
   url
     loc='https://www.sipi.app'
   each place in apiResponse
-    url
-      loc=`https://www.sipi.app/lugar/${place.system.id}/${place.content.slug}`
-      lastmod=`${place.date.modified}`
-      changefreq='weekly'
-      priority='0.7'
+    if place.organizational
+      if place.organizational.isBranch
+        url
+          loc=`https://www.sipi.app/lugar/${place.system.id}/${place.organizational.parent.slug}/${place.content.slug}`
+          lastmod=`${place.date.modified}`
+          changefreq='weekly'
+          priority='0.7'
+      else
+        url
+          loc=`https://www.sipi.app/lugar/${place.system.id}/${place.content.slug}`
+          lastmod=`${place.date.modified}`
+          changefreq='weekly'
+          priority='0.7'
+    else
+      url
+        loc=`https://www.sipi.app/lugar/${place.system.id}/${place.content.slug}`
+        lastmod=`${place.date.modified}`
+        changefreq='weekly'
+        priority='0.7'
