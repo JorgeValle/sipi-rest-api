@@ -13,6 +13,7 @@ router.get('/categories', retrieveCtrl.retrieveAllCategories);
 router.get('/categoryfilters/:categoryId', retrieveCtrl.retrieveCategoryFilters);
 router.get('/cities/:countryId', retrieveCtrl.retrieveCitiesByCountryId);
 router.get('/countries', retrieveCtrl.retrieveAllCountries);
+router.get('/subcategories/:categoryId', retrieveCtrl.retrieveSubcategoriesById);
 router.get('/notifications/:id', retrieveCtrl.retrieveUserNotifications);
 router.get('/page/:pageSlug', retrieveCtrl.retrievePageBySlug);
 router.get('/places', retrieveCtrl.retrieveAllPlaces);

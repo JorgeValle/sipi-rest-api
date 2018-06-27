@@ -20,7 +20,6 @@ const category = mongoose.model('Category'),
       subcategory = mongoose.model('Subcategory'),
       user = mongoose.model('User');
 
-
 /**
  * Renders the sitemap data using the sitemap pug file
  * @param {*} req 
@@ -66,6 +65,25 @@ module.exports.retrieveAllCategories = function(req, res) {
     }
   });
 
+}
+
+/**
+ * 
+ * 
+ */
+module.exports.retrieveSubcategoriesById = function(req, res) {
+
+  console.log(req.params.categoryId);
+
+  subcategory.find({
+    'system.parentId': req.params.categoryId
+  }).exec(function(err, subcategories) {
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    } else {
+      jsonService.sendResponse(res, 200, subcategories);
+    }
+  })
 }
 
 /**
