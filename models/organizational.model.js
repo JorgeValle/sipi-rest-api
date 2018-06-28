@@ -9,7 +9,8 @@ const mongoose = require('mongoose'),
 let organizationalSchema = new Schema({
   isBranch: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   },
   parent: {
    id: Number,
@@ -18,7 +19,8 @@ let organizationalSchema = new Schema({
   },
   isParent: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   }
 });
 

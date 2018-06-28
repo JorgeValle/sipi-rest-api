@@ -11,9 +11,10 @@ let addressSchema = new Schema({
   city: String,
   coordinates: coordinatesSchema,
   country: String,
+  municipality: String,
+  neighborhood: String,
   number: String,
-  street: String,
-  neighborhood: String
+  street: String
 });
 
 // indexing the fields to be used for search
