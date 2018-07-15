@@ -7,7 +7,8 @@ const mongoose = require('mongoose'),
 
 // services
 const jsonService = require('../services/json.service'),
-      environmentService = require('../services/environment.service');
+      environmentService = require('../services/environment.service'),
+      urlService = require('../services/url.service');
 
 // models
 const category = mongoose.model('Category'),
@@ -336,25 +337,28 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
 
   // both are present
   if (termIsPresent && locationIsPresent) {
+
+    console.log('Both are present');
+
     query = {
       $and: [
         {
           $or: [
             {
-              'content.name': term
+              'content.name': urlService.unencode(term)
             },
             {
-              'category.name': term
+              'category.name': urlService.unencode(term)
             }
           ]
         },
         {
           $or: [
             {
-              'address.city': location
+              'address.city': urlService.unencode(location)
             },
             {
-              'address.country': location
+              'address.country': urlService.unencode(location)
             }
           ]
         },
@@ -367,13 +371,18 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
   
   // term is present
   else if (termIsPresent) {
+    console.log('Only term is present');
+
     query = {
       $or: [
         {
-          'content.name': term
+          'content.name': urlService.unencode(term)
         },
         {
-          'category.name': term
+          'category.name': urlService.unencode(term)
+        },
+        {
+          'category.subcats': urlService.unencode(term)
         }
       ],
       $and: [{
@@ -385,14 +394,14 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
   // location is present
   else if (locationIsPresent) {
 
-    console.log('location is present');
+    console.log('Only location is present');
     query = {
       $or: [
         {
-          'address.city': location
+          'address.city': urlService.unencode(location)
         },
         {
-          'address.country': location
+          'address.country': urlService.unencode(location)
         },
       ],
       $and: [{
@@ -403,6 +412,9 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
   
   // neither are present
   else {
+
+    console.log('Neither are present');
+
     query = {
       'organizational.isBranch': false // don't list branches
     };

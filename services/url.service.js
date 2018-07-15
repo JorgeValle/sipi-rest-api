@@ -63,3 +63,21 @@ module.exports.desluggify = function(str) {
   }
 
 }
+
+/**
+ * Unencodes URLS, replacing plus signs fro spaces
+ */
+module.exports.unencode = function(str) {
+
+  try {
+
+    return str.replace('+', ' ');
+
+  } catch(err) {
+
+    console.log('Something went wrong with the deserialize method on the url service');
+
+  }
+
+
+}
