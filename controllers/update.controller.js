@@ -231,6 +231,58 @@ module.exports.updatePlaceCoordinatesById = function(req, res) {
 }
 
 /**
+ * Look up place by id, then update its coordinates
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ */
+module.exports.updatePlaceLocationById = function(req, res) {
+
+  let placeId = req.body.placeId;
+  
+  place.findOne({
+    'system.id': placeId
+  }, function(err, place) {
+    
+    if (!place) {
+      jsonService.sendResponse(res, 404, 'No such place');
+    }
+
+    if (err) {
+      jsonService.sendResponse(res, 400, err);
+    }
+
+    // we update the coordinates
+    place.address.coordinates = {
+      lat: req.body.lat,
+      lng: req.body.lng
+    }
+
+    // we update the address
+    place.address.number = req.body.number;
+    place.address.street = req.body.street;
+    place.address.country = req.body.country;
+    place.address.city = req.body.city;
+
+    // we update the contact
+    place.contact.phone = req.body.phone;
+    place.contact.website = req.body.website;
+    place.contact.email = req.body.email;
+
+    // finally we save the new object
+    place.save(function(err, updatedPlace) {
+      if (err) {
+        jsonService.sendResponse(res, 400, err);
+      } else {
+        jsonService.sendResponse(res, 200, updatedPlace);
+      }
+    });
+
+  });
+
+}
+
+
+/**
  * Look up place by id, then update its categories and subcategories
  * @param {object} req - The request object 
  * @param {object} res - The response object 

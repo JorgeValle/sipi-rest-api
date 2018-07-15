@@ -13,6 +13,7 @@ router.put('/city', updateCtrl.updateCityById);
 router.put('/country', updateCtrl.updateCountryById);
 router.put('/page', updateCtrl.updatePageById);
 router.put('/place', updateCtrl.updatePlaceById);
+router.put('/place/location', updateCtrl.updatePlaceLocationById);
 router.put('/place/amenities', updateCtrl.updatePlaceAmenitiesById);
 router.put('/place/coordinates', updateCtrl.updatePlaceCoordinatesById);
 router.put('/place/rating', updateCtrl.updatePlaceRatingById);

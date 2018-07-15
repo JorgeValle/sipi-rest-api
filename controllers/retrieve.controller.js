@@ -359,9 +359,9 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
           ]
         },
       ],
-      $and: {
+      $and: [{
         'organizational.isBranch': false // don't list branches
-      }
+      }]
     };
   }
   
@@ -376,9 +376,9 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
           'category.name': term
         }
       ],
-      $and: {
+      $and: [{
         'organizational.isBranch': false // don't list branches
-      }
+      }]
     };
   }
   
@@ -395,9 +395,9 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
           'address.country': location
         },
       ],
-      $and: {
+      $and: [{
         'organizational.isBranch': false // don't list branches
-      }
+      }]
     };
   }
   
