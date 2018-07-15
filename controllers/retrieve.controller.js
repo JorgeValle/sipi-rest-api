@@ -341,7 +341,7 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
         {
           $or: [
             {
-              'name': term
+              'content.name': term
             },
             {
               'category.name': term
@@ -370,7 +370,7 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
     query = {
       $or: [
         {
-          'name': term
+          'content.name': term
         },
         {
           'category.name': term
