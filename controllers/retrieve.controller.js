@@ -349,9 +349,14 @@ module.exports.retrievePlacesByTermAndLocation = function(req, res) {
             },
             {
               'category.name': urlService.unencode(term)
+            },
+            {
+              'category.subcats': urlService.unencode(term)
             }
           ]
         },
+      ],
+      $and: [
         {
           $or: [
             {

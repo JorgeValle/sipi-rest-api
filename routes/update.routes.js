@@ -17,6 +17,7 @@ router.put('/place/location', updateCtrl.updatePlaceLocationById);
 router.put('/place/amenities', updateCtrl.updatePlaceAmenitiesById);
 router.put('/place/coordinates', updateCtrl.updatePlaceCoordinatesById);
 router.put('/place/rating', updateCtrl.updatePlaceRatingById);
+router.put('/place/hours', updateCtrl.updatePlaceHoursById);
 router.put('/user', updateCtrl.updateUserById);
 router.put('/user/privacy', updateCtrl.updateUserPrivacy);
 router.put('/user/status', updateCtrl.updateUserStatus);

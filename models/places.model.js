@@ -8,6 +8,7 @@ const mongoose = require('mongoose'),
 const addressSchema = require('mongoose').model('Address').schema,
       coordinatesSchema = require('mongoose').model('Coordinates').schema,
       dateSchema = require('mongoose').model('Date').schema,
+      hoursSchema = require('mongoose').model('Hours').schema,
       imageSchema = require('mongoose').model('Image').schema,
       organizationalSchema = require('mongoose').model('Organizational').schema;
 
@@ -56,6 +57,8 @@ let placeSchema = new Schema({
       type: Number
     }
   },
+  // operating hours
+  hours: hoursSchema,
   // system
   system: {
     id: {

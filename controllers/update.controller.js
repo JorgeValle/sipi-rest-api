@@ -56,6 +56,89 @@ module.exports.updatePageById = function(req, res) {
 }
 
 /**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+module.exports.updatePlaceHoursById = function(req, res) {
+
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
+
+    let placeId = req.body.placeId;
+
+    let monday = {
+      open: req.body.mondayOpen,
+      close: req.body.mondayClose
+    };
+
+    let tuesday = {
+      open: req.body.tuesdayOpen,
+      close: req.body.tuesdayClose
+    };
+
+    let wednesday = {
+      open: req.body.wednesdayOpen,
+      close: req.body.wednesdayClose
+    };
+
+    let thursday = {
+      open: req.body.thursdayOpen,
+      close: req.body.thursdayClose
+    };
+
+    let friday = {
+      open: req.body.fridayOpen,
+      close: req.body.fridayClose
+    };
+
+    let saturday = {
+      open: req.body.saturdayOpen,
+      close: req.body.saturdayClose
+    };
+
+    let sunday = {
+      open: req.body.sundayOpen,
+      close: req.body.sundayClose
+    };
+
+    place.findOne({
+      'system.id': placeId
+    }, function(err, place) {
+
+      if (err) {
+        jsonService.sendResponse(res, 400, err);
+      }
+
+      if (!place) {
+        jsonService.sendResponse(res, 404, 'No such place');
+      }
+
+      // we set the hours
+      place.hours = {
+        monday: monday,
+        tuesday: tuesday,
+        wednesday: wednesday,
+        thursday: thursday,
+        friday: friday,
+        saturday: saturday,
+        sunday: sunday
+      };
+
+      // finally we save the new object
+      place.save(function(err, updatedPlace) {
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 200, updatedPlace);
+        }
+      });
+    });
+
+  }
+}
+
+/**
  * Looks up place by id, then updates it
  * @todo Refactor this, badly, and get owner id
  * @param {object} req - The request object
