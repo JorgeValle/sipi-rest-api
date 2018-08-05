@@ -13,12 +13,20 @@ const dateSchema = require('mongoose').model('Date').schema;
 let countrySchema = new Schema({
   // date
   date: dateSchema,
-  // native
+  // content
   content: {
     name: {
       type: String,
       required: true,
       unique: true,
+      trim: true
+    },
+    description: {
+      type: String,
+      trim: true
+    },
+    tagline: {
+      type: String,
       trim: true
     },
     slug: {

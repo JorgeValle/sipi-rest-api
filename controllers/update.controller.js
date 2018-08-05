@@ -46,6 +46,43 @@ module.exports.updateCityById = function(req, res) {
  */
 module.exports.updateCountryById = function(req, res) {
 
+  // we need a password passed in
+  if (req.body.password === environmentService.returnApiPassword()) {
+
+    // grab all values from request object
+    let countryId = req.body.countryId,
+        description = req.body.description,
+        tagline = req.body.tagline;
+
+    country.findOne({
+      'system.id': countryId
+    }, function(err, country) {
+
+      if (err) {
+        jsonService.sendResponse(res, 400, err);
+      }
+
+      if (!country) {
+        jsonService.sendResponse(res, 404, 'No such country');
+      }
+
+      country.content.description = description;
+      country.content.tagline = tagline;
+
+      // date
+      country.date.modified = Date.now();
+
+      // finally we save the new object
+      country.save(function(err, updatedCountry) {
+
+        if (err) {
+          jsonService.sendResponse(res, 400, err);
+        } else {
+          jsonService.sendResponse(res, 200, updatedCountry);
+        }
+      });
+    });
+  }
 }
 
 /**
