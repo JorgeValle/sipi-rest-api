@@ -5,7 +5,8 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
 // subdocuments
-const dateSchema = require('mongoose').model('Date').schema;
+const dateSchema = require('mongoose').model('Date').schema,
+      imageSchema = require('mongoose').model('Image').schema;
 
 /**
  * The schema for countries
@@ -41,6 +42,10 @@ let countrySchema = new Schema({
       required: true,
       unique: true
     }
+  },
+  // image
+  images: {
+    featured: imageSchema
   }
 });
 

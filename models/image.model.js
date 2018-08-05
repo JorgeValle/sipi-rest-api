@@ -8,9 +8,8 @@ const mongoose = require('mongoose'),
  */
 let imageSchema = new Schema({
   fileName: String,
-  title: String,
+  description: String,
   caption: String,
-  featured: Boolean
 });
 
 // exporting for use in other schemas

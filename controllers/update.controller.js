@@ -52,7 +52,10 @@ module.exports.updateCountryById = function(req, res) {
     // grab all values from request object
     let countryId = req.body.countryId,
         description = req.body.description,
-        tagline = req.body.tagline;
+        tagline = req.body.tagline,
+        imageFile = req.body.imageFile,
+        imageDescription = req.body.imageDescription,
+        imageCaption = req.body.imageCaption;
 
     country.findOne({
       'system.id': countryId
@@ -68,6 +71,13 @@ module.exports.updateCountryById = function(req, res) {
 
       country.content.description = description;
       country.content.tagline = tagline;
+
+      // image
+      country.images.featured = {
+        fileName: imageFile,
+        description: imageDescription,
+        caption: imageCaption
+      };
 
       // date
       country.date.modified = Date.now();
