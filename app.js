@@ -3,12 +3,10 @@ const bodyParser = require('body-parser'),
       cookieParser = require('cookie-parser'),
       cors = require('cors'),
       express = require('express'),
-      fs = require('fs'),
       logger = require('morgan'),
       methodOverride = require('method-override'),
       passport = require('passport'),
       path = require('path'),
-      multer = require('multer'),
       secure = require('express-force-https');
 
 // the entry point for the database connection
@@ -61,7 +59,7 @@ app.use('/upload', uploadRoutes);
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send('Sipi Rest API v3.7.0');
+  res.send('Sipi Rest API v4.0.0');
 })
 
 // catch 404 and forward to error handler
