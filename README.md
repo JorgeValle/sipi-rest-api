@@ -32,6 +32,12 @@ set MONGOLAB_URI=YourMongoDatabaseConnectionString
 ```
 Of course the schema in your database needs to match Sipi's. Because the schema is declared with Mongoose, you could just point to an empty database, and the code will create the database schema for you.
 
+Once this environment variable is set, we can load up the app by running the following.
+
+```
+node app.js
+```
+
 ## Security
 
 The Sipi REST Api uses [Snyk](https://snyk.io) for automated vulnerability-finding. The repository strives to stay up to date and with 0 known vulnerabilities at all times.
